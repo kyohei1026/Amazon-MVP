@@ -92,4 +92,297 @@
         .img-contain { width: 100%; border-radius: 10px; max-height: 400px; object-fit: contain; margin-top: 10px; background: #fff; padding: 10px; box-sizing: border-box; }
         .proposal-flow { display: flex; flex-direction: column; align-items: center; gap: 15px; flex-grow: 1; justify-content: center; }
         .flow-item { background: rgba(255,255,255,0.05); padding: 15px 30px; border-radius: 30px; width: 85%; text-align: center; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.1); }
-        .highlight-box { background: rgba(255,153,0,0.15); border: 2px solid var(--amz
+        .highlight-box { background: rgba(255,153,0,0.15); border: 2px solid var(--amz-orange) !important; font-weight: bold; font-size: 1.2rem !important; padding: 25px !important; }
+        .video-box { background: linear-gradient(145deg, #232f3e, #1a222d); border: 2px solid var(--amz-orange); border-radius: 15px; padding: 25px; margin: 20px 0; display: flex; align-items: center; justify-content: space-between; text-decoration: none; }
+        .video-box i { color: var(--amz-orange); font-size: 3rem; margin-right: 25px; }
+        .video-info { flex-grow: 1; color: white; }
+        .video-info strong { font-size: 1.3rem; display: block; }
+        .date-note { position: absolute; bottom: 40px; right: 40px; font-size: 0.9rem; color: var(--text-sub); opacity: 0.8; }
+        
+        .result-panel { background: rgba(0,168,225,0.1); padding: 60px 40px; border-radius: 20px; text-align: center; border: 1px solid rgba(0,168,225,0.3); width: 100%; box-sizing: border-box; }
+
+        /* スマホ向けレスポンシブ対応 */
+        @media (max-width: 768px) {
+            .slide-container { padding: 10px 0; gap: 20px; }
+            .slide { width: 100vw; min-height: auto; padding: 60px 20px 40px; border-radius: 0; border: none; border-bottom: 1px solid #333; }
+            .store-label-fixed { top: 15px; left: 15px; font-size: 1rem; }
+            .slide-number { top: 15px; right: 15px; }
+            h2 { font-size: 1.5rem; margin-top: 10px; }
+            .amz-card-container { grid-template-columns: 1fr; margin-top: 20px; }
+            .stat-card { font-size: 1rem; padding: 15px; }
+            .flow-item, .highlight-box { width: 100%; font-size: 1rem !important; padding: 15px !important; }
+            .result-panel { padding: 30px 15px; }
+            .result-panel .title { font-size: 1.5rem !important; }
+            .result-panel .score { font-size: 3.5rem !important; }
+            .result-panel .score span { font-size: 2rem !important; margin: 0 5px !important; }
+            .result-panel .diff { font-size: 2rem !important; }
+            .video-box { padding: 15px; }
+            .video-box i { font-size: 2rem; margin-right: 15px; }
+            .video-info strong { font-size: 1.1rem; }
+            .date-note { bottom: 15px; right: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide-container">
+
+    <section class="slide">
+        <div class="store-label-fixed">担当販売店：Amazon</div>
+        <div class="slide-number">01</div>
+        <div class="amz-card-container">
+            <div class="amz-info-card">
+                <div class="orange-text" style="font-weight:bold;">市場規模</div>
+                <div style="font-size: 2.2rem; font-weight:900; margin: 10px 0;">国内売上高<br><span class="orange-text">約4兆円</span></div>
+                <div style="color:var(--text-sub);">日本市場において圧倒的シェア。月間7,000万人が利用する巨大プラットフォーム。</div>
+            </div>
+            <div class="amz-info-card">
+                <div class="orange-text" style="font-weight:bold;">無限の品揃え</div>
+                <div style="font-size: 2.2rem; font-weight:900; margin: 10px 0;">無限の棚を有する<br><span class="orange-text">3億アイテム</span></div>
+                <div style="color:var(--text-sub);">物理的制約がない「無限の棚」。ただし、登録しただけでは埋もれるリスクも。</div>
+            </div>
+            <div class="amz-info-card">
+                <div class="orange-text" style="font-weight:bold;">巨大な広告塔</div>
+                <div style="font-size: 2.2rem; font-weight:900; margin: 10px 0;">リアル店舗への影響</div>
+                <div style="color:var(--text-sub);">Amazonで検索し実店舗で買う購買行動が定着。EC外の売上にも波及効果。</div>
+            </div>
+            <div class="amz-info-card">
+                <div class="orange-text" style="font-weight:bold;">情報プラットフォーム</div>
+                <div style="font-size: 2.2rem; font-weight:900; margin: 10px 0;">商品を知る場でもある</div>
+                <div style="color:var(--text-sub);">レビューや比較を通じ消費者が商品を深く理解する、ブランド認知の最重要拠点。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">02</div>
+        <h2>直面していた課題と背景</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; gap:20px;">
+            <div class="stat-card" style="border-left: 8px solid var(--accent-red); background: rgba(255,77,77,0.05);">
+                <div style="font-size:1.3rem; color:var(--accent-red); font-weight:bold; margin-bottom:10px;">
+                    <i class="fa-solid fa-chart-line" style="margin-right:10px;"></i>1. Amazonにおける貢献利益率の改善
+                </div>
+                <p style="margin:0;">
+                    24年度の貢献利益率は<span style="font-weight:bold; color:var(--accent-red);">21.1%</span>に留まっており、対策が急務だった。
+                </p>
+            </div>
+            <div class="stat-card" style="border-left: 8px solid var(--accent-red); background: rgba(255,77,77,0.05);">
+                <div style="font-size:1.3rem; color:var(--accent-red); font-weight:bold; margin-bottom:10px;">
+                    <i class="fa-solid fa-arrow-up-right-dots" style="margin-right:10px;"></i>2. 新商品の垂直立ち上げの難しさ
+                </div>
+                <p style="margin:0;">
+                    3億点を超える膨大なアイテムの中に新商品が埋没し、誰にも気づかれない不確実性が高い。<br>
+                    商品を登録しただけでは売れない「認知の壁」を突破することが大きな課題であった。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">03</div>
+        <h2>今回取り組んだこと：<br>高単価新商品の拡販による貢献利益率の改善</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+            <div class="stat-card" style="border-left: 8px solid var(--amz-orange); padding: 40px; background: rgba(255,153,0,0.03);">
+                <div style="font-size:1.4rem; margin-bottom:15px; color:var(--amz-orange); font-weight:bold;">
+                    <i class="fa-solid fa-bullseye" style="margin-right:10px;"></i>メイン・ミッション
+                </div>
+                <p style="font-size:1.4rem; font-weight:bold; line-height:1.6; margin:0;">
+                    単なる売上拡大ではなく「利益の質」を変える戦略へとシフト。<br>
+                    データに基づいたターゲット選定と広告投資により、高単価・高利益な新商品を垂直立ち上げする。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">04</div>
+        <h2>収益改善へのロードマップ</h2>
+        <div class="proposal-flow">
+            <div class="flow-item">出荷実績分析により新商品の高利益率を確認</div>
+            <i class="fa-solid fa-chevron-down" style="color:var(--amz-orange);"></i>
+            <div class="flow-item">高単価・高利益な新商品の拡販こそが利益改善の鍵</div>
+            <i class="fa-solid fa-chevron-down" style="color:var(--amz-orange);"></i>
+            <div class="flow-item highlight-box">
+                「高利益な新商品拡販はAmazon側の収益改善にも直結する」と提案。<br>
+                双方のメリットを一致させ、強固な推進体制を構築。
+            </div>
+        </div>
+        <div style="margin-top: 40px; text-align: center;">
+            <p style="font-size: 1.1rem; color: var(--amz-orange); font-weight: bold;">
+                次ページより、代表事例としてトレループPremiumと<br>柄がたためるカーペットクリーナーの拡販の成功事例を紹介
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">05</div>
+        <h2>事例1：トレループPremium 戦略分析</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; gap:20px;">
+            <div class="stat-card" style="border-left: 8px solid var(--accent-green);">
+                <strong class="orange-text"><i class="fa-solid fa-comments"></i> レビュー分析の結果</strong><br>
+                既存品は「コスパ」「手軽さ」で高評価だが、一部で「家中を一気に掃除するには容量不足」「何度も往復するのが手間」という<span style="color:var(--accent-green); font-weight:bold;">清掃効率への不満（伸び代）</span>を発見。
+            </div>
+            
+            <div class="stat-card" style="border-left: 8px solid var(--amz-blue);">
+                <strong class="orange-text"><i class="fa-solid fa-magnifying-glass"></i> キーワード分析の結果</strong><br>
+                既存品は「トレループ」「ホコリ取り」等の指名検索が多く、ブランド認知度は確立できていた。逆にリーチできる客層は「すでにブランドを知っている層」に限定されていた。
+            </div>
+
+            <div class="stat-card" style="background: rgba(255,153,0,0.1); border: 1px solid var(--amz-orange); text-align: center;">
+                <strong>結論：これまで接点のなかった「高価格帯家電（掃除機等）を検討する層」へターゲットを設定しPremiumを投入。</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">06</div>
+        <h2>トレループPremium：ターゲット戦略</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; gap:20px;">
+            <div class="stat-card">
+                <strong class="orange-text">既存：クイックルやウェーブといった「ほこり取り」の購入希望者層</strong>
+            </div>
+            <div class="stat-card">
+                <strong style="color:var(--accent-green);">Premium：掃除機やお掃除ロボットの購入希望者層(高価格帯購入者層)</strong>
+            </div>
+            <div class="stat-card" style="text-align: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);">
+                <strong>ターゲットを分けることで、双方からの集客が購入数増に繋がった。</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">07</div>
+        <h2>トレループPremium：動画広告施策</h2>
+        <a href="https://d.kuku.lu/ex3jp4rz7" target="_blank" class="video-box">
+            <i class="fa-solid fa-play-circle"></i>
+            <div class="video-info"><strong>トレループPremium紹介動画 (15秒)</strong></div>
+        </a>
+        <div class="stat-card" style="border-left: 5px solid var(--amz-blue);">
+            <strong>「10~15秒完結」と「冒頭1秒」の徹底：</strong><br>
+            開始1秒でインパクトシーンを配置。競合を検討していた層をダイレクトに誘導。<br>
+            <strong class="orange-text">結果：クイックルから397万3,244円の売上を奪取。</strong>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">08</div>
+        <h2>事例2：柄がたためるカーペットクリーナー 戦略詳細</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; gap:30px;">
+            <div class="stat-card" style="border-left: 8px solid var(--amz-blue); background: rgba(0,168,225,0.05);">
+                <div style="font-size:1.2rem; color:var(--amz-blue); font-weight:bold; margin-bottom:10px;">
+                    <i class="fa-solid fa-crosshairs" style="margin-right:10px;"></i>1. Amazonデータを活用した高効率ターゲティング
+                </div>
+                <p style="margin:0;">
+                    Amazonバイヤー提供のデータを基に、競合検討層へピンポイントで動画広告を配信。無駄な投資を徹底排除し、新規顧客を最小コストで獲得。
+                </p>
+            </div>
+
+            <div class="stat-card" style="border-left: 8px solid var(--accent-green); background: rgba(0,255,136,0.05);">
+                <div style="font-size:1.2rem; color:var(--accent-green); font-weight:bold; margin-bottom:10px;">
+                    <i class="fa-solid fa-lightbulb" style="margin-right:10px;"></i>2. 「スペック」ではなく「生活メリット」への転換
+                </div>
+                <p style="margin:0;">
+                    「柄がたためる（機能）」ではなく「ケース不要・収納の手間ゼロ（価値）」をサブ画像・動画で徹底訴求。<strong>「ケースを捨てる解放感」</strong>を提示し、ブランドスイッチを強力に促した。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">09</div>
+        <h2>柄がたためるカーペットクリーナー：動画広告施策</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+            <a href="#" class="video-box">
+                <i class="fa-solid fa-play-circle"></i>
+                <div class="video-info"><strong>柄がたためるカーペットクリーナー紹介動画</strong></div>
+            </a>
+            <div class="stat-card" style="border-left: 5px solid var(--amz-orange);">
+                <strong>訴求ポイント：</strong><br>
+                「柄がたためる」点の訴求ではなく、「柄がたためる」から「ケース不要」「自立」「コンパクト収納」な点を訴求しました。
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">10</div>
+        <h2>今回の結果</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+            <div class="result-panel">
+                <div class="title" style="color:var(--text-main); margin-bottom:20px; font-size:2rem; font-weight:bold; letter-spacing: 2px;">貢献利益率改善</div>
+                <div class="score" style="font-size: 5rem; color: var(--accent-green); font-weight: 900; line-height: 1;">
+                    21.1% <span style="font-size: 3rem; vertical-align: middle; margin: 0 10px; opacity: 0.6;">➔</span> 28.2%
+                </div>
+                <div class="diff orange-text" style="font-size:2.5rem; font-weight:bold; margin-top:20px;">▲ 7.1% 向上</div>
+            </div>
+        </div>
+        <div class="date-note">2025/3/25時点</div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">11</div>
+        <h2>今回取り組んだこと：実績内訳</h2>
+        <div style="flex-grow:1;" class="table-responsive">
+            <table class="simple-table">
+                <thead>
+                    <tr><th>対象商品</th><th>期間売上 (POS)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>トレループ</td><td>1億7,289万9,486円(前年比 190%)</td></tr>
+                    <tr><td>トレループPremium</td><td>1億1,303万9,009円</td></tr>
+                    <tr><td>柄がたためるカーペットクリーナー</td><td>1,503万8,689円</td></tr>
+                    <tr><td>他 秋冬新商品</td><td>2,132万7,251円</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">12</div>
+        <h2>成果：粗利率改善</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+            <div class="stat-card" style="font-size: 1.1rem;">Amazonの粗利率を改善することに成功しました。</div>
+            <div style="text-align:center;">
+                <img src="./粗利率向上.png" class="img-contain" alt="粗利率向上グラフ">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">13</div>
+        <h2>成果：売上の垂直立ち上げと維持</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center;">
+            <div class="stat-card" style="font-size: 1.1rem;">既存品の売上を維持しつつ、新商品の売上を軌道に乗せることに成功。</div>
+            <div style="text-align:center;">
+                <img src="./年度別月次売上.png" class="img-contain" alt="年度別月次売上グラフ">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div class="slide-number">14</div>
+        <h2>今後の展望</h2>
+        <div style="flex-grow:1; display:flex; flex-direction:column; justify-content:center; gap:30px;">
+            <div class="stat-card" style="border-top: 5px solid var(--amz-orange); padding: 30px;">
+                <h3 style="color:var(--amz-orange); margin-top:0; font-size:1.5rem;">1. 成功モデルの確立</h3>
+                <p style="margin:0;">
+                    今回の施策を通じて、<span style="color:var(--accent-green); font-weight:bold;">「高利益な新商品を投入すれば、全体の利益率は確実に向上する」</span>という確信を得ることができました。
+                </p>
+            </div>
+            
+            <div class="stat-card" style="border-top: 5px solid var(--amz-blue); padding: 30px;">
+                <h3 style="color:var(--amz-blue); margin-top:0; font-size:1.5rem;">2. 知見の横展開</h3>
+                <p style="margin:0;">
+                    データに基づいたターゲット選定や、冒頭1秒にこだわった動画広告など、今回確立した<strong>「新商品の垂直立ち上げ手法」</strong>を、今後の清掃カテゴリーの全商品に活かし、積極的に市場投入を加速させていきます。
+                </p>
+            </div>
+        </div>
+        <div style="margin-top:20px; display: flex; justify-content: space-between; opacity: 0.5; font-size: 0.9rem;">
+            <span>レック株式会社</span>
+            <span>成功事例発表資料</span>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
